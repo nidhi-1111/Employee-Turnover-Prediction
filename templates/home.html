@@ -1,0 +1,107 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Employee turnover Prediction</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Employee turnover Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Satisfaction Level from 0 to 1 (float)</label>
+            <input class="form-control" type="number" name="satisfaction_level"
+                placeholder="Enter your Satisfaction level" min='0.0' max='1.0' step='0.01'/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">last evaluation from 0 to 1 (float)</label>
+            <input class="form-control" type="number" name="last_evaluation"
+                placeholder="Enter your last evaluation f" min='0.0' max='1.0' step='0.01'/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">number project</label>
+            <input class="form-control" type="number" name="number_project"
+                placeholder="Enter your number of project" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">average montly hours</label>
+            <input class="form-control" type="number" name="average_montly_hours"
+                placeholder="Enter your average_montly_hours" min='0' max='10000' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">time_spend_company in years</label>
+            <input class="form-control" type="number" name="time_spend_company"
+                placeholder="Enter your time spend at company in years" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Work_accident (0 or 1)</label>
+            <input class="form-control" type="number" name="Work_accident"
+                placeholder="Enter is you had any Work_accident at company" min='0' max='1' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">promotion_last_5years (0 or 1)</label>
+            <input class="form-control" type="number" name="promotion_last_5years"
+                placeholder="Enter whether you recieved promotion in the last 5 years" min='0' max='1' />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">sales</label>
+            <select class="form-control" name="sales" placeholder="Enter your department" required>
+                <option class="placeholder" selected disabled value="">Select department</option>
+                <option value="sales">
+                    sales
+                </option>
+                <option value="accounting">
+                    accounting
+                </option>
+                <option value="hr">
+                    hr
+                </option>
+                <option value="technical">
+                    technical
+                </option>
+                <option value="support">
+                    support
+                </option>
+                <option value="management">
+                    management
+                </option>
+                <option value="IT">
+                    IT
+                </option>
+                <option value="product_mng">
+                    product_mng
+                </option>
+                <option value="marketing">
+                    marketing
+                </option>
+                <option value="RandD">
+                    RandD
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">salary</label>
+            <select class="form-control" name="salary"
+                placeholder="Enter your salary" required>
+                <option class="placeholder" selected disabled value="">Select salary</option>
+                <option value="low">
+                    low
+                </option>
+                <option value="medium">
+                    medium
+                </option>
+                <option value="high">
+                    high
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your Maths Score" required />
+        </div>
+    </form>
+    <h2>
+       The prediction of whether an employee will leave the company or not is {{results}}
+    </h2>
+   <body>
+</html>
